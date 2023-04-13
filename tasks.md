@@ -17,7 +17,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 -- WHERE (LOWER(hometeam) LIKE LOWER('%Barcelona%'))
 -- OR 
--- WHERE (LOWER(awayteam) LIKE LOWER('%Barcelona%')); I couldn't get the away teams to show up though.
+-- WHERE (LOWER(awayteam) LIKE LOWER('%Barcelona%')); 
 
 
 ```
@@ -38,6 +38,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 -- SELECT * FROM divisions
 -- WHERE name = 'Bundesliga';
+-- SELECT COUNT(*) FROM matches WHERE division_code = 'D1';
 
 
 ```
@@ -45,7 +46,11 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 5) Find the teams which include the word "City" in their name. 
 
 ```sql
-<!-- Copy solution here -->
+-- SELECT DISTINCT hometeam FROM matches
+-- WHERE (LOWER(hometeam) LIKE LOWER('%City%'));
+
+-- SELECT DISTINCT awayteam FROM matches 
+-- WHERE (LOWER(awayteam) LIKE LOWER('%City%')); 
 
 
 ```
@@ -53,7 +58,17 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 6) How many different teams have played in matches recorded in a French division?
 
 ```sql
-<!-- Copy solution here -->
+-- SELECT * FROM divisions
+-- WHERE country = 'France';
+
+-- SELECT COUNT(DISTINCT awayteam) FROM matches 
+-- WHERE division_code='F`1' 
+-- OR division_code='F2';
+
+-- SELECT COUNT(DISTINCT hometeam) FROM matches 
+-- WHERE division_code='F1' 
+-- OR division_code='F2'; 
+
 
 
 ```
