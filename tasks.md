@@ -75,8 +75,10 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 7) Have Huddersfield played Swansea in any of the recorded matches?
 
-```sql
-<!-- Copy solution here -->
+<!-- ```sql
+SELECT COUNT(*) FROM matches
+WHERE ((hometeam = 'Swansea') AND (awayteam = 'Huddersfield'))
+OR ((hometeam = 'Huddersfield') AND (awayteam = 'Swansea')) -->
 
 
 ```
